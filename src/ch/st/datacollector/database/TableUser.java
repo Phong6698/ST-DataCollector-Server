@@ -1,6 +1,9 @@
 package ch.st.datacollector.database;
 
+import ch.st.datacollector.model.Summoner;
+
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by Phong6698 on 15.05.2016.
