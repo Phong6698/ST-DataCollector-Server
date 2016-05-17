@@ -1,6 +1,9 @@
 package ch.st.datacollector.server;
 
-import java.util.Date;
+import ch.st.datacollector.controller.DatabaseController;
+import ch.st.datacollector.model.Summoner;
+
+import java.util.ArrayList;
 
 /**
  * Created by Phong6698 on 17.05.2016.
@@ -8,7 +11,12 @@ import java.util.Date;
 public class DataCollector {
 
     public static void checkData(){
-        System.out.println("10 Seconds: "+new Date());
+        ArrayList<Summoner> summoners = DatabaseController.getInstance().getAllSummonersWithLatestGame();
+
+        for(Summoner summoner : summoners){
+            long createDateDB = summoner.getGames().get(0).getCreateDate();
+            //TODO CHECKING
+        }
     }
 
 }

@@ -10,15 +10,28 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Phong6698 on 16.05.2016.
  */
-public class Server extends Thread{
+public class Server {
 
     private boolean running;
-    Timer timer = new Timer();
-    final static ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+    final static ScheduledExecutorService EXECUTOR_SERVICE = Executors.newSingleThreadScheduledExecutor();
 
-    public void run(){
+    public Server(){
+        TimeTest timeTest = new TimeTest();
+        timeTest.start();
+    }
+
+    public void start(){
 
     }
+
+    public void shutdown(){
+
+    }
+
+    public void restart(){
+
+    }
+
 
 
 

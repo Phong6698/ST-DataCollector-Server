@@ -37,7 +37,7 @@ public class DatabaseController {
      * get ArrayList of Summoner contains with the latest game with createDate
      * @return ArrayList Summoner
      */
-    public ArrayList<Summoner> getSummonerWithLatestGame(){
+    public ArrayList<Summoner> getAllSummonersWithLatestGame(){
         ArrayList<Summoner> summoners = TABLE_SUMMONER.getAllSummoners();
         for(Summoner summoner : summoners){
             ArrayList<Game> games = new ArrayList<>();

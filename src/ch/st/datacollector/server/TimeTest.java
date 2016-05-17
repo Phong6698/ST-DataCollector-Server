@@ -10,8 +10,32 @@ import java.util.concurrent.TimeUnit;
  */
 public class TimeTest{
 
+    private static ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+
+    public TimeTest(){
+
+    }
+
 
     public static void checker(){
         System.out.println("3 Seconds: "+new Date());
+    }
+
+    public void start(){
+        if(executorService.isShutdown()) {
+            executorService = Executors.newSingleThreadScheduledExecutor();
+            executorService.scheduleAtFixedRate(TimeTest::checker, 0, 3, TimeUnit.SECONDS);
+        }
+    }
+
+    public void shutdown(){
+        if(!executorService.isShutdown()){
+            executorService.shutdown();
+        }
+    }
+
+    public void restart(){
+        shutdown();
+        start();
     }
 }

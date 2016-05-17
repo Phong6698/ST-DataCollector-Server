@@ -26,9 +26,14 @@ public class Main {
 //        server.setRunning(true);
 //        server.setRunning(false);
 //        server.setRunning(true);
-        final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-        executorService.scheduleAtFixedRate(DataCollector::checkData, 0, 10, TimeUnit.SECONDS);
-        executorService.scheduleAtFixedRate(TimeTest::checker, 0, 3, TimeUnit.SECONDS);
+//        final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+//        executorService.scheduleAtFixedRate(DataCollector::checkData, 0, 10, TimeUnit.SECONDS);
+//        executorService.scheduleAtFixedRate(TimeTest::checker, 0, 3, TimeUnit.SECONDS);
+
+        TimeTest timeTest = new TimeTest();
+        timeTest.start();
+        timeTest.shutdown();
+        timeTest.restart();
 
 	}
 
