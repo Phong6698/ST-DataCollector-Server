@@ -1,5 +1,6 @@
 package ch.st.datacollector.server;
 
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.Executors;
@@ -13,24 +14,14 @@ public class Server extends Thread{
 
     private boolean running;
     Timer timer = new Timer();
+    final static ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
 
     public void run(){
-        while (running){
-            final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-            executorService.scheduleAtFixedRate(Server::checker, 10, 1, TimeUnit.SECONDS);
 
-//            timer.scheduleAtFixedRate(new TimerTask() {
-//                @Override
-//                public void run() {
-//                    System.out.println("Hello");
-//                }
-//            }, 1*60*1000, 1*60*1000);
-        }
     }
 
-    public static void checker(){
-        System.out.println("Hello");
-    }
+
+
 
     public boolean isRunning() {
         return running;
