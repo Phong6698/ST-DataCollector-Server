@@ -13,8 +13,8 @@ public class Main {
 	public static void main(String[] args) {
         System.out.println("Hello");
 
-        DatabaseController.getInstance().getAllUsers();
-        JsonController.getInstance().getGames();
+//        DatabaseController.getInstance().getAllUsers();
+//        JsonController.getInstance().getGames();
 
         Server server = new Server();
         server.start();
