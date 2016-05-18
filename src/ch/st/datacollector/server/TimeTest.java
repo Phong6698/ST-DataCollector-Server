@@ -24,7 +24,18 @@ public class TimeTest{
     public void start(){
         if(executorService.isShutdown()) {
             executorService = Executors.newSingleThreadScheduledExecutor();
+
+            //Java 8
             executorService.scheduleAtFixedRate(TimeTest::checker, 0, 3, TimeUnit.SECONDS);
+
+//            //Java 7
+//            executorService.scheduleAtFixedRate(new Runnable() {
+//                @Override
+//                public void run() {
+//                    checker();
+//                }
+//            }, 0, 3, TimeUnit.SECONDS);
+
         }
     }
 
