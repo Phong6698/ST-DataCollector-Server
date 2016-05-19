@@ -10,6 +10,11 @@ import javax.swing.JButton;
 import javax.swing.JSplitPane;
 import java.awt.Font;
 
+/**
+ * Created by Phong6698 on 19.05.2016.
+ *
+ * @author Phong6698
+ */
 public class ServerView extends JFrame{
 	
 	public ServerView() {

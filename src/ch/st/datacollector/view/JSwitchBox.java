@@ -16,6 +16,11 @@ import javax.swing.AbstractButton;
 import javax.swing.DefaultButtonModel;
 import javax.swing.JLabel;
 
+/**
+ * Created by Phong6698 on 19.05.2016.
+ *
+ * @author Phong6698
+ */
 public class JSwitchBox extends AbstractButton{
         private Color colorBright = new Color(220,220,220);
         private Color colorDark = new Color(150,150,150);
