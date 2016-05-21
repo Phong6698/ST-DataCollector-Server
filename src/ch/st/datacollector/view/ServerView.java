@@ -22,6 +22,8 @@ import javax.swing.JSplitPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import static javax.swing.JFrame.*;
+
 /**
  * Created by Phong6698 on 19.05.2016.
  *
@@ -38,7 +40,6 @@ public class ServerView extends JFrame{
 			e.printStackTrace();
 		}
 		setTitle("ST - DC Server");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //		getContentPane().add( new JSwitchBox( "on", "off" ));
 
 		setBounds(100, 100, 951, 669);
@@ -214,13 +215,13 @@ public class ServerView extends JFrame{
 		gbl_updateButtonPanel.rowWeights = new double[]{3.0, 1.0, 3.0, Double.MIN_VALUE};
 		updateButtonPanel.setLayout(gbl_updateButtonPanel);
 		
-		JButton btnNewButton_3 = new JButton("Update manuelly");
+		JButton updateButton = new JButton("Update manuelly");
 		GridBagConstraints gbc_btnNewButton_3 = new GridBagConstraints();
 		gbc_btnNewButton_3.fill = GridBagConstraints.VERTICAL;
 		gbc_btnNewButton_3.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewButton_3.gridx = 1;
 		gbc_btnNewButton_3.gridy = 1;
-		updateButtonPanel.add(btnNewButton_3, gbc_btnNewButton_3);
+		updateButtonPanel.add(updateButton, gbc_btnNewButton_3);
 		
 		JScrollPane logPanel = new JScrollPane();
 		splitPane.setRightComponent(logPanel);
@@ -237,16 +238,18 @@ public class ServerView extends JFrame{
 		
 	}
 	
-	public Image loadImage(String path, int width, int height){
+	private Image loadImage(String path, int width, int height){
 		Image img = null;
 		try {
 			img = ImageIO.read(ServerView.class.getResource(path));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		img = img.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);
-		
-		return img;		
+        if (img != null) {
+            img = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        }
+
+        return img;
 	}
 
 }
