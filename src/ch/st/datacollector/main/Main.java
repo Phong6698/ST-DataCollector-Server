@@ -1,5 +1,8 @@
 package ch.st.datacollector.main;
 
+import ch.st.datacollector.controller.JsonController;
+import ch.st.datacollector.model.Game;
+import ch.st.datacollector.model.Summoner;
 import ch.st.datacollector.view.ServerView;
 
 /**
@@ -28,6 +31,13 @@ public class Main {
 //        timeTest.restart();
 		
 		new ServerView();
+		Summoner summoner = JsonController.getInstance().getSummonerWithLatestTenGames(67540676, "EUW");
+		for(Game game : summoner.getGames()){
+			System.out.println(game.getGameId());
+			System.out.println(game.getGameType());
+			System.out.println(game.isInvalid());
+		}
+
 
 	}
 
