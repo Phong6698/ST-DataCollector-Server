@@ -1,6 +1,8 @@
 package ch.st.datacollector.server;
 
 import ch.st.datacollector.controller.DatabaseController;
+import ch.st.datacollector.controller.JsonController;
+import ch.st.datacollector.model.Game;
 import ch.st.datacollector.model.Summoner;
 
 import java.util.ArrayList;
@@ -16,6 +18,15 @@ public class DataCollector {
         for(Summoner summoner : summoners){
             long createDateDB = summoner.getGames().get(0).getCreateDate();
             //TODO CHECKING
+
+            Summoner apiSummoner = JsonController.getInstance().getSummonerWithLatestTenGames(summoner.getSummonerId(), summoner.getRegion());
+
+            for(Game apiGame : apiSummoner.getGames()){
+                if(createDateDB < apiGame.getCreateDate() && apiGame.getGameMode().equals("CLASSIC") && apiGame.getGameType().equals("MATCHED_GAME") && apiGame.getSubType().equals("NORMAL")){
+                    //TODO Save Game
+                }
+            }
+
         }
     }
 

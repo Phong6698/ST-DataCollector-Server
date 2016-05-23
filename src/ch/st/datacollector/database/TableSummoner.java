@@ -25,6 +25,7 @@ public class TableSummoner extends Database{
                 Summoner summoner = new Summoner();
                 summoner.setId(rs.getInt("ID_Summoner"));
                 summoner.setSummonerId(rs.getLong("summonerId"));
+                summoner.setRegion(rs.getString("region"));
                 summoners.add(summoner);
             }
         } catch (SQLException e) {

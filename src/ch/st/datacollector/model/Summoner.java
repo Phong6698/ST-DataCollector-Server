@@ -11,6 +11,7 @@ public class Summoner {
     private int id;
     private long summonerId;
     private String name;
+    private String region;
     private ArrayList<Game> games;
 
     public int getId() {
@@ -43,5 +44,13 @@ public class Summoner {
 
     public void setGames(ArrayList<Game> games) {
         this.games = games;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 }
