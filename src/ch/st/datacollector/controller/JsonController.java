@@ -45,30 +45,85 @@ public class JsonController {
         ArrayList<Game> games = new ArrayList<>();
         String jsonString = JSON_LOADER.getJsonString("https://"+region+".api.pvp.net/api/lol/"+region+"/v1.3/game/by-summoner/"+summonerId+"/recent?api_key="+API_KEY);
 
-        //TODO PARSING
         JSONObject jsonObject = new JSONObject(jsonString);
         JSONArray gamesJsonArray = jsonObject.getJSONArray("games");
         for (int i = 0; i < gamesJsonArray.length(); i++) {
             Game game = new Game();
+
+            //obj game
             JSONObject gameJsonObject = gamesJsonArray.getJSONObject(i);
 
-            //getCheckedObject(gameJsonObject, "subType", "String")
             game.setGameId(getCheckedObject(gameJsonObject, "gameId", "long"));
             game.setInvalid(getCheckedObject(gameJsonObject, "invalid", "boolean"));
+            game.setGameMode(getCheckedObject(gameJsonObject, "gameMode", "String"));
             game.setGameType(getCheckedObject(gameJsonObject, "gameType", "String"));
             game.setSubType(getCheckedObject(gameJsonObject, "subType", "String"));
+            game.setMapId(getCheckedObject(gameJsonObject, "mapId", "int"));
+            game.setChampionId(getCheckedObject(gameJsonObject, "championId", "int"));
+            game.setSpell1(getCheckedObject(gameJsonObject, "spell1", "int"));
+            game.setSpell2(getCheckedObject(gameJsonObject, "spell2", "int"));
+            game.setIpEarned(getCheckedObject(gameJsonObject, "ipEarned", "int"));
+            game.setCreateDate(getCheckedObject(gameJsonObject, "createDate", "long"));
 
+            //obj stats
+            JSONObject gameStatsJsonObject = gameJsonObject.getJSONObject("stats");
 
+            game.setLevel(getCheckedObject(gameStatsJsonObject, "level", "int"));
+            game.setGoldEarned(getCheckedObject(gameStatsJsonObject, "goldEarned", "int"));
+            game.setNumDeath(getCheckedObject(gameStatsJsonObject, "numDeath", "int"));
+            game.setBarracksKilled(getCheckedObject(gameStatsJsonObject, "barracksKilled", "int"));
+            game.setTurretsKilled(getCheckedObject(gameStatsJsonObject, "turretsKilled", "int"));
+            game.setMinionsKilled(getCheckedObject(gameStatsJsonObject, "minionsKilled", "int"));
+            game.setChampionsKilled(getCheckedObject(gameStatsJsonObject, "championsKilled", "int"));
+            game.setGoldSpent(getCheckedObject(gameStatsJsonObject, "goldSpent", "int"));
+            game.setTotalDamageDealt(getCheckedObject(gameStatsJsonObject, "totalDamageDealt", "int"));
+            game.setTotalDamageTaken(getCheckedObject(gameStatsJsonObject, "totalDamageTaken", "int"));
+            game.setDoubleKills(getCheckedObject(gameStatsJsonObject, "doubleKills", "int"));
+            game.setTripleKills(getCheckedObject(gameStatsJsonObject, "tripleKills", "int"));
+            game.setQuadraKills(getCheckedObject(gameStatsJsonObject, "quadraKills", "int"));
+            game.setPentaKills(getCheckedObject(gameStatsJsonObject, "pentaKills", "int"));
+            game.setKillingSprees(getCheckedObject(gameStatsJsonObject, "killingSprees", "int"));
+            game.setLargestKillingSprees(getCheckedObject(gameStatsJsonObject, "largestKillingSprees", "int"));
+            game.setTeam(getCheckedObject(gameStatsJsonObject, "team", "int"));
+            game.setWin(getCheckedObject(gameStatsJsonObject, "win", "boolean"));
+            game.setNeutralMinionsKilled(getCheckedObject(gameStatsJsonObject, "neutralMinionsKilled", "int"));
+            game.setLargestMultiKill(getCheckedObject(gameStatsJsonObject, "largestMultiKill", "int"));
+            game.setPhysicalDamageDealtPlayer(getCheckedObject(gameStatsJsonObject, "physicalDamageDealtPlayer", "int"));
+            game.setMagicDamageDealtPlayer(getCheckedObject(gameStatsJsonObject, "magicDamageDealtPlayer", "int"));
+            game.setPhysicalDamageTaken(getCheckedObject(gameStatsJsonObject, "physicalDamageTaken", "int"));
+            game.setMagicDamageTaken(getCheckedObject(gameStatsJsonObject, "magicDamageTaken", "int"));
+            game.setLargestCriticalStrike(getCheckedObject(gameStatsJsonObject, "largestCriticalStrike", "int"));
+            game.setTimePlayed(getCheckedObject(gameStatsJsonObject, "timePlayed", "int"));
+            game.setTotalHeal(getCheckedObject(gameStatsJsonObject, "totalHeal", "int"));
+            game.setTotalUnitsHealed(getCheckedObject(gameStatsJsonObject, "totalUnitsHealed", "int"));
+            game.setAssists(getCheckedObject(gameStatsJsonObject, "assists", "int"));
+            game.setItem0(getCheckedObject(gameStatsJsonObject, "item0", "int"));
+            game.setItem1(getCheckedObject(gameStatsJsonObject, "item1", "int"));
+            game.setItem2(getCheckedObject(gameStatsJsonObject, "item2", "int"));
+            game.setItem3(getCheckedObject(gameStatsJsonObject, "item3", "int"));
+            game.setItem4(getCheckedObject(gameStatsJsonObject, "item4", "int"));
+            game.setItem5(getCheckedObject(gameStatsJsonObject, "item5", "int"));
+            game.setItem6(getCheckedObject(gameStatsJsonObject, "item6", "int"));
+            game.setMagicDamageDealtToChampions(getCheckedObject(gameStatsJsonObject, "magicDamageDealtToChampions", "int"));
+            game.setPhysicalDamageDealtToChampions(getCheckedObject(gameStatsJsonObject, "physicalDamageDealtToChampions", "int"));
+            game.setTotalDamageDealtToChampions(getCheckedObject(gameStatsJsonObject, "totalDamageDealtToChampions", "int"));
+            game.setTrueDamageDealtPlayer(getCheckedObject(gameStatsJsonObject, "trueDamageDealtPlayer", "int"));
+            game.setTrueDamageDealtToChampions(getCheckedObject(gameStatsJsonObject, "trueDamageDealtToChampions", "int"));
+            game.setTrueDamageTaken(getCheckedObject(gameStatsJsonObject, "trueDamageTaken", "int"));
+            game.setWardKilled(getCheckedObject(gameStatsJsonObject, "wardKilled", "int"));
+            game.setWardPlaced(getCheckedObject(gameStatsJsonObject, "wardPlaced", "int"));
+            game.setNeutralMinionsKilledEnemyJungle(getCheckedObject(gameStatsJsonObject, "neutralMinionsKilledEnemyJungle", "int"));
+            game.setNeutralMinionsKilledYourJungle(getCheckedObject(gameStatsJsonObject, "neutralMinionsKilledYourJungle", "int"));
+            game.setTotalTimeCrowdControlDealt(getCheckedObject(gameStatsJsonObject, "totalTimeCrowdControlDealt", "int"));
+            game.setPlayerRole(getCheckedObject(gameStatsJsonObject, "playerRole", "int"));
+            game.setPlayerPosition(getCheckedObject(gameStatsJsonObject, "playerPosition", "int"));
+            game.setBountyLevel(getCheckedObject(gameStatsJsonObject, "bountyLevel", "int"));
+            game.setNexusKilled(getCheckedObject(gameStatsJsonObject, "nexusKilled", "boolean"));
 
             games.add(game);
         }
-
         summoner.setGames(games);
-
         return summoner;
-
-
-
     }
 
 

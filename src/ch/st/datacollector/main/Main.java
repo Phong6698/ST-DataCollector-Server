@@ -34,8 +34,10 @@ public class Main {
 		Summoner summoner = JsonController.getInstance().getSummonerWithLatestTenGames(67540676, "EUW");
 		for(Game game : summoner.getGames()){
 			System.out.println(game.getGameId());
-			System.out.println(game.getGameType());
-			System.out.println(game.isInvalid());
+			System.out.println(game.getSubType());
+			System.out.println(game.isWin());
+
+
 		}
 
 
