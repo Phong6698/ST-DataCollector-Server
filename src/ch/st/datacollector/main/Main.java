@@ -3,6 +3,7 @@ package ch.st.datacollector.main;
 import ch.st.datacollector.controller.JsonController;
 import ch.st.datacollector.model.Game;
 import ch.st.datacollector.model.Summoner;
+import ch.st.datacollector.server.DataCollector;
 import ch.st.datacollector.view.ServerView;
 
 /**
@@ -30,15 +31,17 @@ public class Main {
 //        timeTest.shutdown();
 //        timeTest.restart();
 		
-		new ServerView();
-		Summoner summoner = JsonController.getInstance().getSummonerWithLatestTenGames(67540676, "EUW");
-		for(Game game : summoner.getGames()){
-			System.out.println(game.getGameId());
-			System.out.println(game.getSubType());
-			System.out.println(game.isWin());
-
-
-		}
+//		new ServerView();
+//		Summoner summoner = JsonController.getInstance().getSummonerWithLatestTenGames(67540676, "EUW");
+//		for(Game game : summoner.getGames()){
+//			System.out.println(game.getGameId());
+//			System.out.println(game.getSubType());
+//			System.out.println(game.isWin());
+//
+//
+//		}
+		DataCollector dataCollector = new DataCollector();
+		dataCollector.checkData();
 
 
 	}

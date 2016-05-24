@@ -23,7 +23,7 @@ class Database {
 	void openCon(){
 		try {
             String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-            String DB_URL = "jdbc:mysql://localhost:3306/summoner-tracker";
+            String DB_URL = "jdbc:mysql://localhost:3307/summoner-tracker";
             String USER = "root";
             String PASS = "";
             Class.forName(JDBC_DRIVER);

@@ -20,7 +20,7 @@ public class TableGame extends Database {
         openCon();
         Game game = new Game();
         try {
-            ps = con.prepareStatement("SELECT createDate FROM `games` WHERE Summoner_ID = ? ORDER BY createDate DESC;");
+            ps = con.prepareStatement("SELECT createDate FROM `game` WHERE Summoner_ID = ? ORDER BY createDate DESC;");
             ps.setLong(1, summonerId);
             rs = ps.executeQuery();
             while (rs.next()) {
