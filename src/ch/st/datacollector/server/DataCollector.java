@@ -24,7 +24,7 @@ public class DataCollector {
             for(Game apiGame : apiSummoner.getGames()){
                 System.out.println(createDateDB+" : "+apiGame.getCreateDate());
                 if(createDateDB < apiGame.getCreateDate() && apiGame.getGameMode().equals("CLASSIC") && apiGame.getGameType().equals("MATCHED_GAME") && apiGame.getSubType().equals("NORMAL")){
-                    //TODO Save Game
+                    //TODO Save Game apiGame
                     System.out.println("Save");
                 }
             }
