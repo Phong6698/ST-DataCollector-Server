@@ -1,7 +1,7 @@
 package ch.st.datacollector.model;
 
 /**
- * Created by Phong6 on 15.05.2016.
+ * Created by Phong6698 on 15.05.2016.
  * Game Model
  */
 public class Game {
@@ -33,7 +33,7 @@ public class Game {
     private int quadraKills;
     private int pentaKills;
     private int killingSprees;
-    private int largestKillingSprees;
+    private int largestKillingSpree;
     private int team;
     private boolean win;
     private int neutralMinionsKilled;
@@ -286,12 +286,12 @@ public class Game {
         this.killingSprees = killingSprees;
     }
 
-    public int getLargestKillingSprees() {
-        return largestKillingSprees;
+    public int getLargestKillingSpree() {
+        return largestKillingSpree;
     }
 
-    public void setLargestKillingSprees(int largestKillingSprees) {
-        this.largestKillingSprees = largestKillingSprees;
+    public void setLargestKillingSpree(int largestKillingSpree) {
+        this.largestKillingSpree = largestKillingSpree;
     }
 
     public int getTeam() {

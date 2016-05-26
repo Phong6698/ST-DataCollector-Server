@@ -41,9 +41,19 @@ public class DatabaseController {
         ArrayList<Summoner> summoners = TABLE_SUMMONER.getAllSummoners();
         for(Summoner summoner : summoners){
             ArrayList<Game> games = new ArrayList<>();
-            games.add(TABLE_GAME.getLatestGameBySummoner(summoner.getSummonerId()));
+            games.add(TABLE_GAME.getLatestGameBySummoner(summoner.getId()));
             summoner.setGames(games);
         }
         return summoners;
+    }
+
+    /**
+     * Save game by summoner
+     * @param game Game Object
+     * @param summoner_ID Summoner_ID (foreign key)
+     */
+    public void saveGameBySummoner(Game game, int summoner_ID){
+        TABLE_GAME.saveGameBySummoner(game, summoner_ID);
+
     }
 }

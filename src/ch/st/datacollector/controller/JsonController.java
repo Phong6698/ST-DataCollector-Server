@@ -83,7 +83,7 @@ public class JsonController {
             game.setQuadraKills(getCheckedObject(gameStatsJsonObject, "quadraKills", "int"));
             game.setPentaKills(getCheckedObject(gameStatsJsonObject, "pentaKills", "int"));
             game.setKillingSprees(getCheckedObject(gameStatsJsonObject, "killingSprees", "int"));
-            game.setLargestKillingSprees(getCheckedObject(gameStatsJsonObject, "largestKillingSprees", "int"));
+            game.setLargestKillingSpree(getCheckedObject(gameStatsJsonObject, "largestKillingSpree", "int"));
             game.setTeam(getCheckedObject(gameStatsJsonObject, "team", "int"));
             game.setWin(getCheckedObject(gameStatsJsonObject, "win", "boolean"));
             game.setNeutralMinionsKilled(getCheckedObject(gameStatsJsonObject, "neutralMinionsKilled", "int"));
