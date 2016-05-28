@@ -1,21 +1,23 @@
 package ch.st.datacollector.server;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import ch.st.datacollector.controller.DatabaseController;
 import ch.st.datacollector.controller.JsonController;
 import ch.st.datacollector.model.Game;
 import ch.st.datacollector.model.Summoner;
 
-import java.util.ArrayList;
+public class GameCheckerTask extends ServerTask{
 
-/**
- * Created by Phong6698 on 17.05.2016.
- *
- * @author Phong6698
- */
-public class DataCollector {
+	public GameCheckerTask(long delayStart, long delay) {
+		super(delayStart, delay);
+	}
 
-    public static void checkData(){
-        ArrayList<Summoner> summoners = DatabaseController.getInstance().getAllSummonersWithLatestGame();
+	@Override
+	public void doTask() {
+		System.out.println("\n*** "+new Date()+" ***");
+		ArrayList<Summoner> summoners = DatabaseController.getInstance().getAllSummonersWithLatestGame();
 
         for(Summoner summoner : summoners){
             long createDateDB = summoner.getGames().get(0).getCreateDate();
@@ -31,6 +33,7 @@ public class DataCollector {
             }
 
         }
-    }
+		
+	}
 
 }

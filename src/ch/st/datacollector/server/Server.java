@@ -8,44 +8,31 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
+ *
  * Created by Phong6698 on 16.05.2016.
+ *
+ * @author Phong6698
  */
 public class Server {
 
-    private boolean running;
-    final static ScheduledExecutorService EXECUTOR_SERVICE = Executors.newSingleThreadScheduledExecutor();
+    GameCheckerTask gameCheckerTask;
 
     public Server(){
-        TimeTest timeTest = new TimeTest();
-        timeTest.start();
+        gameCheckerTask = new GameCheckerTask(0, 20);
     }
 
     public void start(){
-
+        System.out.println("Start Server");
+        gameCheckerTask.start();
     }
 
     public void shutdown(){
-
+        System.out.println("Shutdown Server");
+        gameCheckerTask.shutdown();
     }
 
     public void restart(){
-
-    }
-
-
-
-
-
-    public boolean isRunning() {
-        return running;
-    }
-
-    public void setRunning(boolean running) {
-        if(running){
-            System.out.println("Server: On");
-        } else {
-            System.out.println("Server: Off");
-        }
-        this.running = running;
+        System.out.println("Restart Server");
+        gameCheckerTask.restart();
     }
 }
